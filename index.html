@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Password Generator App</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/style.css">
+  <script src="./script/script.js" defer></script>
+  <link rel="icon" type="image/x-icon" href="./assets/favicon.png">
+</head>
+<body>
+  <div class="container">
+    <div class="heading">
+      <h3>Password Generator</h3>
+    </div>
+    <div class="inputWrapper">
+      <input type="text" placeholder="P4$5W0rD!" id="password" disabled>
+      <img src="./assets/icon-copy.svg" alt="clipboard icon" id="clipboard">
+    </div>
+    <div class="passwordSettingsWrapper">
+      <div class="rangeWrapper">
+        <div class="heading-double">
+          <span>Character Length</span>
+          <span id="rangeNumber">0</span>
+        </div>
+        <div class="rangeFieldWrapper">
+          <input type="range" id="rangeField" min="0" max="20" step="5" value="0">
+        </div>
+      </div>
+      <div class="boxesWrapper">
+        <div class="checkboxWrapper">
+          <input type="checkbox" name="uppercase" value="uppercase"  class="checkboxField">
+          <span>Include Uppercase Letters</span>
+        </div>
+        <div class="checkboxWrapper">
+          <input type="checkbox" name="lowercase" value="lowercase"  class="checkboxField">
+          <span>Include Lowercase Letters</span>
+        </div>
+        <div class="checkboxWrapper">
+          <input type="checkbox" name="numbers" value="numbers"   class="checkboxField">
+          <span>Include Numbers</span>
+        </div>
+        <div class="checkboxWrapper">
+          <input type="checkbox" name="symbols" value="symbols"  class="checkboxField">
+          <span>Include Symbols</span>
+        </div>
+      </div>
+      <div class="passwordStrengthWrapper">
+          <span>STRENGTH</span>
+          <div class="strengthColumns">
+            <div class="column"></div>
+            <div class="column"></div>
+            <div class="column"></div>
+            <div class="column"></div>
+          </div>
+      </div>
+      <button id="btn">
+        Generate
+        <img src="./assets/icon-arrow-right.svg" alt="right arrow">
+      </button>
+    </div>
+  </div>
+</body>
+</html>
