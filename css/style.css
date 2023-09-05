@@ -1,0 +1,244 @@
+/* ============== VARIABLES ============== */
+:root {
+  --primaryColor: rgb(164, 255, 175);
+  --secondayColor: rgb(8, 7, 11);
+  --white: rgb(255,255,255);
+  --gray: rgb(129, 125, 146);
+  --darkGray: rgb(36, 35, 44);
+}
+
+/* ============== GLOBAL SETTINGS ============== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "JetBrains Mono", monospace;
+}
+
+body {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  max-width: 100%;
+  height: 100vh;
+  background-color: var(--secondayColor);
+}
+@media (max-width: 768px) {
+  body {
+    padding: 15px;
+  }
+}
+
+/* ============== CONTAINER ============== */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 40px;
+  width: 425px;
+}
+
+/* ============== HEADING ============== */
+.heading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 25px;
+}
+.heading h3 {
+  color: var(--gray);
+}
+
+.inputWrapper {
+  width: 100%;
+  position: relative;
+}
+.inputWrapper #password {
+  display: block;
+  width: 100%;
+  padding: 18px 60px 18px 24px;
+  border: 0;
+  background: var(--darkGray);
+  outline: none;
+  color: var(--white);
+  font-size: 22px;
+}
+.inputWrapper #clipboard {
+  position: absolute;
+  top: 20px;
+  right: 24px;
+  display: block;
+  width: 18px;
+  cursor: pointer;
+  transition: all 300ms ease-in-out;
+}
+.inputWrapper #clipboard:hover {
+  filter: brightness(0) invert(1);
+  transition: all 0.3s ease-in-out;
+}
+
+/* ============== PASSWORD SETTINGS WRAPPER ============== */
+.passwordSettingsWrapper {
+  width: 100%;
+  margin: 30px 0;
+  min-height: 300px;
+  background: var(--darkGray);
+  padding: 24px;
+  /* ============== RANGE WRAPPER ============== */
+  /* ============== CHECKBOXES WRAPPER ============== */
+  /* ============== STRENGTH WRAPPER ============== */
+  /* ============== BUTTON ============== */
+}
+.passwordSettingsWrapper .rangeWrapper {
+  width: 100%;
+  margin-bottom: 25px;
+}
+.passwordSettingsWrapper .rangeWrapper .heading-double {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.passwordSettingsWrapper .rangeWrapper .heading-double span {
+  color: var(--white);
+}
+.passwordSettingsWrapper .rangeWrapper .heading-double #rangeNumber {
+  color: var(--primaryColor);
+  font-size: 30px;
+  line-height: 45px;
+}
+.passwordSettingsWrapper .rangeWrapper .rangeFieldWrapper {
+  width: 100%;
+  margin-top: 15px;
+}
+.passwordSettingsWrapper .rangeWrapper .rangeFieldWrapper #rangeField {
+  width: 100%;
+  height: 10px;
+  -webkit-appearance: none;
+  background: rgba(255, 255, 255, 0.6);
+  background-image: linear-gradient(var(--primaryColor), var(--primaryColor));
+  background-size: 0 100%;
+  background-repeat: no-repeat;
+}
+.passwordSettingsWrapper .rangeWrapper .rangeFieldWrapper #rangeField:focus {
+  outline: none;
+}
+.passwordSettingsWrapper .rangeWrapper .rangeFieldWrapper #rangeField::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
+  background: var(--white);
+  cursor: ew-resize;
+  box-shadow: 0 0 2px 0 #555;
+  transition: all 0.3s ease-in-out;
+  border: 1px solid transparent;
+  cursor: grab;
+}
+.passwordSettingsWrapper .rangeWrapper .rangeFieldWrapper #rangeField::-webkit-slider-thumb:hover {
+  border: 2px solid var(--primaryColor);
+  background: var(--darkGray);
+  transition: all 0.3s ease-in-out;
+}
+.passwordSettingsWrapper .rangeWrapper .rangeFieldWrapper #rangeField::-webkit-slider-runnable-track {
+  -webkit-appearance: none;
+  box-shadow: none;
+  border: none;
+  background: transparent;
+}
+.passwordSettingsWrapper .boxesWrapper .checkboxWrapper {
+  display: flex;
+  margin-bottom: 12px;
+}
+.passwordSettingsWrapper .boxesWrapper .checkboxWrapper .checkboxField {
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: transparent;
+  margin: 0;
+  margin-right: 12px;
+  color: var(--white);
+  width: 1.15em;
+  height: 1.15em;
+  border: 0.15em solid var(--white);
+  border-radius: 0.15em;
+  transform: translateY(-0.075em);
+  display: grid;
+  place-content: center;
+}
+.passwordSettingsWrapper .boxesWrapper .checkboxWrapper .checkboxField::before {
+  content: "";
+  width: 0.65em;
+  height: 0.65em;
+  clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+  transform: scale(0);
+  transform-origin: bottom left;
+  transition: 120ms transform ease-in-out;
+  box-shadow: inset 1em 1em var(--form-control-color);
+  /* Windows High Contrast Mode */
+  background-color: #000;
+}
+.passwordSettingsWrapper .boxesWrapper .checkboxWrapper .checkboxField:checked::before {
+  transform: scale(1);
+}
+.passwordSettingsWrapper .boxesWrapper .checkboxWrapper .checkboxField:checked {
+  background-color: var(--primaryColor);
+  border: 0.15em solid var(--primaryColor);
+}
+.passwordSettingsWrapper .boxesWrapper .checkboxWrapper .checkboxField:hover {
+  border: 0.15em solid var(--primaryColor);
+}
+.passwordSettingsWrapper .boxesWrapper .checkboxWrapper span {
+  color: var(--white);
+}
+.passwordSettingsWrapper .passwordStrengthWrapper {
+  background: var(--secondayColor);
+  display: flex;
+  padding: 30px 12px;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 50px;
+}
+.passwordSettingsWrapper .passwordStrengthWrapper span {
+  color: var(--gray);
+}
+.passwordSettingsWrapper .passwordStrengthWrapper .strengthColumns {
+  display: flex;
+  justify-content: space-between;
+}
+.passwordSettingsWrapper .passwordStrengthWrapper .strengthColumns .column {
+  border: 1px solid #fff;
+  height: 25px;
+  width: 10px;
+  margin-left: 7px;
+}
+.passwordSettingsWrapper #btn {
+  background-color: var(--primaryColor);
+  border: 2px solid transparent;
+  width: 100%;
+  margin-top: 25px;
+  padding: 20px 0;
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 3px;
+  color: var(--darkGray);
+  transition: all 300ms ease-in-out;
+}
+.passwordSettingsWrapper #btn img {
+  width: 10px;
+  margin-left: 7px;
+  transition: all 300ms ease-in-out;
+}
+.passwordSettingsWrapper #btn:hover {
+  background: transparent;
+  border: 2px solid var(--primaryColor);
+  color: var(--primaryColor);
+  transition: all 300ms ease-in-out;
+}
+.passwordSettingsWrapper #btn:hover img {
+  transition: all 300ms ease-in-out;
+  filter: invert(89%) sepia(18%) saturate(866%) hue-rotate(64deg) brightness(105%) contrast(101%);
+}
+
+/*# sourceMappingURL=style.css.map */

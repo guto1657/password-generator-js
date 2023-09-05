@@ -1,0 +1,270 @@
+/* ============== VARIABLES ============== */
+:root {
+  --primaryColor: rgb(164, 255, 175);
+  --secondayColor: rgb(8, 7, 11);
+  --white: rgb(255,255,255);
+  --gray: rgb(129, 125, 146);
+  --darkGray: rgb(36, 35, 44);
+}
+
+/* ============== GLOBAL SETTINGS ============== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "JetBrains Mono", monospace;
+}
+
+body {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  max-width: 100%;
+  height: 100vh;
+  background-color: var(--secondayColor);
+
+  @media (max-width:768px) {
+    padding: 15px;
+  }
+}
+
+/* ============== CONTAINER ============== */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 40px;
+  width: 425px;
+
+}
+
+/* ============== HEADING ============== */
+.heading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 25px;
+
+  h3 {
+    color: var(--gray);
+  }
+}
+
+.inputWrapper {
+  width: 100%;
+  position: relative;
+
+  #password {
+    display: block;
+    width: 100%;
+    padding: 18px 60px 18px 24px;
+    border: 0;
+    background: var(--darkGray);
+    outline: none;
+    color: var(--white);
+    font-size: 22px;
+  }
+
+  #clipboard {
+    position: absolute;
+    top: 20px;
+    right: 24px;
+    display: block;
+    width: 18px;
+    cursor: pointer;
+    transition: all 300ms ease-in-out;
+
+    &:hover {
+      filter: brightness(0) invert(1);
+      transition: all .3s ease-in-out;
+    }
+  } 
+}
+
+/* ============== PASSWORD SETTINGS WRAPPER ============== */
+.passwordSettingsWrapper {
+  width: 100%;
+  margin: 30px 0 ;
+  min-height: 300px;
+  background: var(--darkGray);
+  padding: 24px;
+
+  /* ============== RANGE WRAPPER ============== */
+  .rangeWrapper {
+    width: 100%;
+    margin-bottom: 25px;
+
+    .heading-double {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+  
+      span {
+        color: var(--white);
+      }
+  
+      #rangeNumber {
+        color: var(--primaryColor);
+        font-size: 30px;
+        line-height: calc(30px * 1.5);
+      }
+    }
+
+    .rangeFieldWrapper {
+      width: 100%;
+      margin-top: 15px;
+
+      #rangeField {
+        width: 100%;
+        height: 10px;
+        -webkit-appearance: none;
+        background: rgba(255, 255, 255, 0.6);
+        background-image: linear-gradient(var(--primaryColor), var(--primaryColor));
+        background-size: 0 100%;
+        background-repeat: no-repeat;
+
+        &:focus {
+          outline: none;
+        }
+
+        &::-webkit-slider-thumb {
+          -webkit-appearance: none;
+          height: 25px;
+          width: 25px;
+          border-radius: 50%;
+          background: var(--white);
+          cursor: ew-resize;
+          box-shadow: 0 0 2px 0 #555;
+          transition: all .3s ease-in-out;
+          border: 1px solid transparent;
+          cursor: grab;
+        }
+
+        &::-webkit-slider-thumb:hover {
+          border: 2px solid var(--primaryColor);
+          background: var(--darkGray);
+          transition: all .3s ease-in-out;
+        }
+
+        &::-webkit-slider-runnable-track {
+          -webkit-appearance: none;
+          box-shadow: none;
+          border: none;
+          background: transparent;
+        }
+      }
+    }
+  }
+  /* ============== CHECKBOXES WRAPPER ============== */
+  .boxesWrapper {
+    .checkboxWrapper {
+      display: flex;
+      margin-bottom: 12px;
+      .checkboxField  {
+        -webkit-appearance: none;
+        appearance: none;
+        background-color: transparent;
+        margin: 0;
+        margin-right: 12px;
+        color: var(--white);
+        width: 1.15em;
+        height: 1.15em;
+        border: 0.15em solid var(--white);
+        border-radius: 0.15em;
+        transform: translateY(-0.075em);
+        display: grid;
+        place-content: center;
+
+        &::before {
+          content: "";
+          width: 0.65em;
+          height: 0.65em;
+          clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+          transform: scale(0);
+          transform-origin: bottom left;
+          transition: 120ms transform ease-in-out;
+          box-shadow: inset 1em 1em var(--form-control-color);
+          /* Windows High Contrast Mode */
+          background-color: #000;
+        }
+
+        &:checked::before {
+          transform: scale(1);
+        }
+
+        &:checked {
+          background-color: var(--primaryColor);
+          border: 0.15em solid var(--primaryColor);
+        }
+        
+      &:hover {
+        border: 0.15em solid var(--primaryColor);
+      }
+
+      }
+      span {
+        color: var(--white);
+      }
+    }
+  }
+
+    /* ============== STRENGTH WRAPPER ============== */
+  .passwordStrengthWrapper {
+    background: var(--secondayColor);
+    display: flex;
+    padding: 30px 12px;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 50px;
+
+    span {
+        color: var(--gray);
+      }
+   
+    .strengthColumns {
+      display: flex;
+      justify-content: space-between;
+
+      .column {
+        border: 1px solid #fff;
+        height: 25px;
+        width: 10px;
+        margin-left: 7px;
+      }
+    }
+  }
+  /* ============== BUTTON ============== */
+  #btn {
+    background-color: var(--primaryColor);
+    border: 2px solid transparent;
+    width: 100%;
+    margin-top: 25px;
+    padding: 20px 0;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 3px;
+    color: var(--darkGray);
+    transition: all 300ms ease-in-out;
+
+    img {
+      width: 10px;
+      margin-left: 7px;
+      transition: all 300ms ease-in-out;
+    }
+
+    &:hover {
+      background: transparent;
+      border: 2px solid var(--primaryColor);
+      color: var(--primaryColor);
+      transition: all 300ms ease-in-out;
+
+      img {
+        transition: all 300ms ease-in-out;
+        filter: invert(89%) sepia(18%) saturate(866%) hue-rotate(64deg) brightness(105%) contrast(101%);
+      }
+    }
+  }
+}
